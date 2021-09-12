@@ -1,0 +1,14 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaConnector
+metadata:
+  name: my-source-connector
+  labels:
+    strimzi.io/cluster: my-connect-cluster
+spec:
+  config:
+    database.hostname: <hostname>
+    database.port: 5432
+    database.user: <username>@<hostname>
+    database.password: <password>
+    database.dbname : <dbName>
+    database.server.name: <topicPrefix>

@@ -1,0 +1,9 @@
+resources:
+  - namespace.yaml
+  - ../../base
+  - postgres.yaml
+
+namespace: strimzi-demo
+
+patchesStrategicMerge:
+  - kafka-connector.yaml
