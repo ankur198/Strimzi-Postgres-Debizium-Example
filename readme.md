@@ -4,6 +4,13 @@ This example creates strimzi cluster. Runs kafka-connect with debezium plugin fo
 
 ## Instructions
 
+1. Clone this repo and run all commands inside it
+
+    ``` bash
+    git clone https://github.com/ankur198/Strimzi-Postgres-Debizium-Example
+    cd Strimzi-Postgres-Debizium-Example
+    ```
+
 1. Switch to namespace
 
     ``` bash
