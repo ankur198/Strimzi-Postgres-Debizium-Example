@@ -1,49 +1,66 @@
-### Switch to namespace
-``` bash
-kubectl config set-context --current --namespace=<insert-namespace-name-here>
-```
+# Strimzi Postgres-Debizium Example
 
-### Create a k8s secret [more info](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials)
+This example creates strimzi cluster. Runs kafka-connect with debezium plugin for PostgresSql
 
-``` bash
-kubectl create secret docker-registry regcred \
-    --docker-server=<your-registry-server> \
-    --docker-username=<your-name> \
-    --docker-password=<your-pword> \
-    --docker-email=<your-email>
-```
+## Instructions
 
-### Apply
+1. Switch to namespace
 
-``` bash
-kustomize build ./overlays/<overlay-name>/ \
-    | kubectl apply -f -
-```
+    ``` bash
+    kubectl config set-context --current --namespace=<insert-namespace-name-here>
+    ```
 
-### To get all topics
+1. Create a k8s secret [more info](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials)
 
-``` bash
-kubectl exec my-cluster-kafka-0 -c kafka -it -- \
-    bin/kafka-topics.sh \
-        --bootstrap-server localhost:9092 \
-        --list
-```
+    ``` bash
+    kubectl create secret docker-registry regcred \
+        --docker-server=<your-registry-server> \
+        --docker-username=<your-name> \
+        --docker-password=<your-pword> \
+        --docker-email=<your-email>
+    ```
 
-### To consume topic
+1. Replace `*.sample.yaml` with your own file
 
-``` bash
-kubectl exec my-cluster-kafka-0 -c kafka -it -- \
-  bin/kafka-console-consumer.sh \
-    --bootstrap-server localhost:9092 \
-    --topic <topic-name>
-```
+1. Apply
 
-``` bash
-docker run --rm -it quay.io/strimzi/kafka:0.22.1-kafka-2.7.0 -- \
+    ``` bash
+    kustomize build ./overlays/<overlay-name>/ \
+        | kubectl apply -f -
+    ```
+
+    or
+
+    ``` bash
+    kubectl apply -k ./overlays/<overlay-name>
+    ```
+
+1. To get all topics
+
+    ``` bash
+    kubectl exec my-cluster-kafka-0 -c kafka -it -- \
+        bin/kafka-topics.sh \
+            --bootstrap-server localhost:9092 \
+            --list
+    ```
+
+1. To consume topic
+
+    ``` bash
+    kubectl exec my-cluster-kafka-0 -c kafka -it -- \
     bin/kafka-console-consumer.sh \
-    --bootstrap-server <ip>:9094 \
-    --topic <topic-name>
-```
+        --bootstrap-server localhost:9092 \
+        --topic <topic-name>
+    ```
+
+    or
+
+    ``` bash
+    docker run --rm -it quay.io/strimzi/kafka:0.22.1-kafka-2.7.0 -- \
+        bin/kafka-console-consumer.sh \
+        --bootstrap-server <ip>:9094 \
+        --topic <topic-name>
+    ```
 
 ## Resources
 
