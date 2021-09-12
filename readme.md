@@ -56,7 +56,7 @@ This example creates strimzi cluster. Runs kafka-connect with debezium plugin fo
     or
 
     ``` bash
-    docker run --rm -it quay.io/strimzi/kafka:0.22.1-kafka-2.7.0 -- \
+    docker run --rm -it quay.io/strimzi/kafka:0.22.1-kafka-2.7.0 \
         bin/kafka-console-consumer.sh \
         --bootstrap-server <ip>:9094 \
         --topic <topic-name>
