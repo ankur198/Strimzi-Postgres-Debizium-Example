@@ -20,6 +20,8 @@ This example creates strimzi cluster. Runs kafka-connect with debezium plugin fo
         --docker-email=<your-email>
     ```
 
+    where `docker-server` will be `https://index.docker.io/v1/` in case of docker hub
+
 1. Replace `*.sample.yaml` with your own file
 
 1. Apply
