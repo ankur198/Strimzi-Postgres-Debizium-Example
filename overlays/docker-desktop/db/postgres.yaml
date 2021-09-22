@@ -1,28 +1,23 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
   name: postgres
+  labels:
+    name: postgres
 spec:
-  selector:
-    matchLabels:
-      app: postgres
-  template:
-    metadata:
-      labels:
-        app: postgres
-    spec:
-      containers:
-      - name: postgres
-        image: ankur198/debezium-postgres-example:v4
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        env:
-          - name: POSTGRES_PASSWORD
-            value: postgres
-          - name: POSTGRES_USER
-            value: postgres 
+  containers:
+  - name: postgres
+    image: ankur198/debezium-postgres-example:v4
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    env:
+      - name: POSTGRES_PASSWORD
+        value: postgres
+      - name: POSTGRES_USER
+        value: postgres 
+
 ---
 apiVersion: v1
 kind: Service
