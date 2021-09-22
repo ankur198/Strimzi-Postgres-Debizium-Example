@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: debezium/postgres
+        image: ankur198/debezium-postgres-example:v4
         resources:
           limits:
             memory: "128Mi"
@@ -31,6 +31,7 @@ metadata:
 spec:
   selector:
     app: postgres
+  type: LoadBalancer
   ports:
   - port: 5432
     targetPort: 5432

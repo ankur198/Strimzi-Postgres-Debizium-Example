@@ -1,0 +1,17 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaConnector
+metadata:
+  name: elastic-sink-connector
+  labels:
+    strimzi.io/cluster: my-connect-cluster
+spec:
+  class: io.confluent.connect.elasticsearch.ElasticsearchSinkConnector
+  tasksMax: 1
+  config:
+    connector.class: io.confluent.connect.elasticsearch.ElasticsearchSinkConnector
+    tasks.max: 1
+    topics.regex: "dbserver.*"
+    key.ignore: true
+    connection.url: 'http://quickstart-es-http.elastic:9200'
+    connection.username: kafka
+    connection.password: foo

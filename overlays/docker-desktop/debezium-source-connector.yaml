@@ -1,14 +1,14 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaConnector
 metadata:
-  name: my-source-connector
+  name: debezium-source-connector
   labels:
     strimzi.io/cluster: my-connect-cluster
 spec:
   config:
-    database.hostname: postgres
+    database.hostname: postgres.db
     database.port: 5432
     database.user: postgres
     database.password: postgres
-    database.dbname : postgres
-    database.server.name: dbserver1
+    database.dbname : strimzi
+    database.server.name: dbserver

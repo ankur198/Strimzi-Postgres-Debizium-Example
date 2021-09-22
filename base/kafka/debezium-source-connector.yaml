@@ -1,7 +1,7 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaConnector
 metadata:
-  name: my-source-connector
+  name: debezium-source-connector
   labels:
     strimzi.io/cluster: my-connect-cluster
 spec:
@@ -15,7 +15,7 @@ spec:
     database.user: postgres
     database.password: postgres
     database.dbname : postgres
-    database.server.name: dbserver1
+    database.server.name: dbserver
     plugin.name: wal2json
     key.converter: org.apache.kafka.connect.json.JsonConverter
     value.converter: org.apache.kafka.connect.json.JsonConverter

@@ -1,5 +1,3 @@
 resources:
-  - kafka-operator.yaml
-  - kafka-persistent-single.yaml
-  - kafka-connect.yaml
-  - kafka-connector.yaml
+  - kafka
+  - elastic

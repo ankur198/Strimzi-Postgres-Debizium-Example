@@ -1,0 +1,5 @@
+bases:
+  - namespace.yaml
+  - postgres.yaml
+
+namespace: db

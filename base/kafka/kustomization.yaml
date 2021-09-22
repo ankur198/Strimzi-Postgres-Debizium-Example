@@ -1,0 +1,9 @@
+resources:
+  - namespace.yaml
+  - operator.yaml
+  - kafka.yaml
+  - connect.yaml
+  - debezium-source-connector.yaml
+  - elastic-sink-connector.yaml
+
+namespace: kafka

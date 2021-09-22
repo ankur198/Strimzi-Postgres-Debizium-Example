@@ -1,9 +1,6 @@
 resources:
-  - namespace.yaml
   - ../../base
-  - postgres.yaml
-
-namespace: strimzi-demo
+  - db
 
 patchesStrategicMerge:
-  - kafka-connector.yaml
+  - debezium-source-connector.yaml

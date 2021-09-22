@@ -1,0 +1,9 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: custom-users
+stringData:
+  users: |-
+    kafka:foo
+  users_roles: |-
+    superuser:kafka

@@ -1,0 +1,9 @@
+resources:
+  - namespace.yaml
+  - crds.yaml
+  - operator.yaml
+  - elasticSearch.yaml
+  - kibana.yaml
+  - users.yaml
+
+namespace: elastic
