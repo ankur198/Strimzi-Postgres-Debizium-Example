@@ -1,2 +1,3 @@
 overlays/azure-dev/kafka-connector.yaml
 overlays/azure-dev/kafka-connect.yaml
+overlays/docker-desktop/connect.yaml

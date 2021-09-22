@@ -4,3 +4,4 @@ resources:
 
 patchesStrategicMerge:
   - debezium-source-connector.yaml
+  - connect.yaml
