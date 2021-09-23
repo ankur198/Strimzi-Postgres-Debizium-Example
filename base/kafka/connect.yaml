@@ -8,7 +8,7 @@ metadata:
     strimzi.io/use-connector-resources: "true"
 spec:
   replicas: 1
-  bootstrapServers: my-cluster-kafka-bootstrap:9092
+  bootstrapServers: cluster-kafka-bootstrap:9092
 
   config:
     group.id: connect-cluster

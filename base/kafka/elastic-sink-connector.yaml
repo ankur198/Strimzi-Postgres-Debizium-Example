@@ -12,6 +12,6 @@ spec:
     tasks.max: 1
     topics.regex: "dbserver.*"
     key.ignore: true
-    connection.url: 'http://quickstart-es-http.elastic:9200'
+    connection.url: 'http://elastic-es-http.elastic:9200'
     connection.username: kafka
     connection.password: foo

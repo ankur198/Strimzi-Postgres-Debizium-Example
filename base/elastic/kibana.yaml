@@ -1,12 +1,12 @@
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
 metadata:
-  name: quickstart
+  name: elastic
 spec:
   version: 7.14.2
   count: 1
   elasticsearchRef:
-    name: quickstart
+    name: elastic
   http:
     service:
       spec:

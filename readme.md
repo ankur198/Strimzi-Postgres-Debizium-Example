@@ -68,7 +68,7 @@ Example to create strimzi cluster. Run kafka-connect with debezium plugin for Po
 1. To get all topics
 
     ``` bash
-    kubectl exec my-cluster-kafka-0 -c kafka -it -- \
+    kubectl exec cluster-kafka-0 -c kafka -n kafka -it -- \
         bin/kafka-topics.sh \
             --bootstrap-server localhost:9092 \
             --list
@@ -77,7 +77,7 @@ Example to create strimzi cluster. Run kafka-connect with debezium plugin for Po
 1. To consume topic (via CLI)
 
     ``` bash
-    kubectl exec my-cluster-kafka-0 -c kafka -it -- \
+    kubectl exec cluster-kafka-0 -c kafka -n kafka -it -- \
         bin/kafka-console-consumer.sh \
             --bootstrap-server localhost:9092 \
             --topic <topic-name>
